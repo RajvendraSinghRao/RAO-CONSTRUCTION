@@ -9,6 +9,7 @@
       text-align: center; 
       padding: 20px;
       font-size: 18px; 
+      margin: 0;
     }
     h1 { 
       color: #2a2a2a; 
@@ -39,8 +40,9 @@
       display: block; /* Show only the active image */
     }
     .floor-plan img { 
-      width: 500px; /* Increased size of the image */
-      height: 350px;
+      width: 100%; /* Make images responsive */
+      max-width: 700px; /* Maximum width for large screens */
+      height: auto; /* Keep aspect ratio */
       border-radius: 8px;
       object-fit: cover;
     }
@@ -99,6 +101,34 @@
     }
     .back-to-home:hover {
       background-color: #555;
+    }
+
+    /* Responsive design for mobile devices */
+    @media (max-width: 768px) {
+      .floor-plan img {
+        max-width: 90%; /* Make the images responsive on smaller screens */
+        width: 100%;
+      }
+      .slider-buttons button {
+        font-size: 16px;
+      }
+      .back-to-home {
+        font-size: 18px;
+        padding: 12px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px; /* Make header smaller on very small screens */
+      }
+      .flat-info p {
+        font-size: 20px; /* Make flat info text smaller */
+      }
+      .flat-number {
+        font-size: 20px; /* Smaller button text */
+        padding: 12px 25px;
+      }
     }
   </style>
 </head>
