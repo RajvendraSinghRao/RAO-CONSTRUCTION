@@ -173,9 +173,23 @@
   <div class="flat-info">
     <p>Ground Floor</p>
     <div>
-      <button class="flat-number sold">001</button>
+      <button class="flat-number sold">G1</button>
+      <button class="flat-number">G2</button>
+      <button class="flat-number">G3</button>
+    </div>
+  </div>
+
+  <!-- Mezzanine Floor Info -->
+  <div class="flat-info">
+    <p>Mezzanine Floor</p>
+    <div>
+      <button class="flat-number">001</button>
       <button class="flat-number">002</button>
       <button class="flat-number">003</button>
+      <button class="flat-number">004</button>
+      <button class="flat-number">005</button>
+      <button class="flat-number">006</button>
+      <button class="flat-number">007</button>
     </div>
   </div>
 
@@ -196,6 +210,15 @@
       floorPlans.forEach(plan => plan.classList.remove('active'));
       floorPlans[currentSlide].classList.add('active');
     }
+
+    // Function to dynamically mark a flat as "sold" or not
+    function setSold(flatNumber) {
+      const flatButton = document.querySelector(`.flat-number[data-flat="${flatNumber}"]`);
+      flatButton.classList.add('sold');
+    }
+
+    // Example usage:
+    // setSold(2); // Call this function when a flat is sold (e.g., G2, 002)
   </script>
 
 </body>
