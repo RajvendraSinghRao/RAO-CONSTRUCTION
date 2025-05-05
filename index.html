@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RAO CONSTRUCTION</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    .section { display: none; }
+    img { width: 300px; height: 200px; cursor: pointer; margin: 10px; }
+    .project-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+    .project { display: flex; flex-direction: column; align-items: center; }
+    h1 { color: #2a2a2a; }
+    button { margin-top: 20px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- HOME SECTION -->
+  <div id="homeSection" class="section" style="display: block;">
+    <h1>RAO CONSTRUCTION</h1>
+    <h2>Our Projects</h2>
+    <img src="https://via.placeholder.com/300x200?text=View+Projects" alt="Projects" onclick="showSection('projectGallery')">
+  </div>
+
+  <!-- PROJECT GALLERY -->
+  <div id="projectGallery" class="section">
+    <h2>All Projects</h2>
+    <div class="project-container">
+      <div class="project">
+        <img src="https://via.placeholder.com/300x200?text=Raj+Park" onclick="showProject('raj')">
+        <p>Raj Park</p>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/300x200?text=Herambh+Plaza" onclick="showProject('herambh')">
+        <p>Herambh Plaza</p>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/300x200?text=Sai+Regency" onclick="showProject('sai')">
+        <p>Sai Regency</p>
+      </div>
+    </div>
+    <button onclick="showSection('homeSection')">← Back to Home</button>
+  </div>
+
+  <!-- PROJECT DETAILS -->
+  <div id="raj" class="section">
+    <h2>Raj Park</h2>
+    <p>Details about the Raj Park project...</p>
+    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+  </div>
+
+  <div id="herambh" class="section">
+    <h2>Herambh Plaza</h2>
+    <p>Details about the Herambh Plaza project...</p>
+    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+  </div>
+
+  <div id="sai" class="section">
+    <h2>Sai Regency</h2>
+    <p>Details about the Sai Regency project...</p>
+    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function showProject(projectId) {
+      showSection(projectId);
+    }
+  </script>
+
+</body>
+</html>
