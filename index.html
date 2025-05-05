@@ -23,21 +23,20 @@
     }
     .project-container { 
       display: flex; 
-      justify-content: center; 
-      gap: 40px; /* Increased space between projects */
-      flex-wrap: wrap;
+      flex-direction: column; /* Stack the images vertically */
+      align-items: center; 
+      gap: 30px; /* Increased space between images */
       margin-top: 20px;
     }
     .project { 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      width: 300px; /* Added width for consistent layout */
-      margin-bottom: 30px;
+      width: 100%; /* Ensure projects take full width */
+      max-width: 350px; /* Set a max width for uniformity */
     }
     .project img { 
-      width: 100%; 
-      max-width: 350px; /* Increased image size */
+      width: 100%; /* Make image fit the screen */
       height: auto; 
       cursor: pointer;
       margin-bottom: 15px;
@@ -49,29 +48,16 @@
       font-weight: bold;
       color: #333;
     }
-    button { 
-      margin-top: 20px; 
-      padding: 12px 25px; /* Increased padding */
-      font-size: 24px; /* Increased button font size */
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover { 
-      background-color: #555; 
-    }
 
     /* Responsive design for mobile devices */
     @media (max-width: 768px) {
       .project-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px; /* Reduced gap for mobile view */
+        flex-direction: column; /* Ensure vertical stack for mobile */
+        gap: 20px; /* Adjust space for mobile view */
       }
       .project img {
-        max-width: 90%; /* Make images responsive on smaller screens */
+        width: 100%; /* Make images responsive on smaller screens */
+        max-width: 90%; /* Allow images to scale down on small screens */
       }
       h1 {
         font-size: 40px; /* Adjust header size for mobile */
@@ -81,10 +67,6 @@
       }
       .project p {
         font-size: 24px; /* Adjust project text size for mobile */
-      }
-      button {
-        font-size: 22px; /* Adjust button size for mobile */
-        padding: 10px 20px;
       }
     }
 
@@ -97,9 +79,6 @@
       }
       .project p {
         font-size: 20px; /* Further reduce project text size */
-      }
-      button {
-        font-size: 20px; /* Further reduce button size for small screens */
       }
     }
   </style>
@@ -121,7 +100,6 @@
         <p>Herambh Plaza</p>
       </div>
     </div>
-    <button onclick="window.location.href='index.html'">← Back to Home</button>
   </div>
 
   <script>
