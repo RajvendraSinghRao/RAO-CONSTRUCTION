@@ -4,13 +4,104 @@
   <meta charset="UTF-8">
   <title>RAO CONSTRUCTION</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-    .section { display: none; }
-    img { width: 300px; height: 200px; cursor: pointer; margin: 10px; }
-    .project-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .project { display: flex; flex-direction: column; align-items: center; }
-    h1 { color: #2a2a2a; }
-    button { margin-top: 20px; padding: 10px 20px; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      text-align: center; 
+      padding: 20px;
+      font-size: 20px; /* Increased base font size */
+      margin: 0;
+    }
+    h1 { 
+      color: #2a2a2a; 
+      font-size: 48px; /* Increased header size */
+      margin-bottom: 20px;
+    }
+    h2 { 
+      font-size: 36px; /* Increased sub-header size */
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .project-container { 
+      display: flex; 
+      justify-content: center; 
+      gap: 40px; /* Increased space between projects */
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .project { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      width: 300px; /* Added width for consistent layout */
+      margin-bottom: 30px;
+    }
+    .project img { 
+      width: 100%; 
+      max-width: 350px; /* Increased image size */
+      height: auto; 
+      cursor: pointer;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .project p {
+      font-size: 28px; /* Increased font size for project name */
+      font-weight: bold;
+      color: #333;
+    }
+    button { 
+      margin-top: 20px; 
+      padding: 12px 25px; /* Increased padding */
+      font-size: 24px; /* Increased button font size */
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { 
+      background-color: #555; 
+    }
+
+    /* Responsive design for mobile devices */
+    @media (max-width: 768px) {
+      .project-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; /* Reduced gap for mobile view */
+      }
+      .project img {
+        max-width: 90%; /* Make images responsive on smaller screens */
+      }
+      h1 {
+        font-size: 40px; /* Adjust header size for mobile */
+      }
+      h2 {
+        font-size: 30px; /* Adjust sub-header size for mobile */
+      }
+      .project p {
+        font-size: 24px; /* Adjust project text size for mobile */
+      }
+      button {
+        font-size: 22px; /* Adjust button size for mobile */
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 36px; /* Further reduce header size for small screens */
+      }
+      h2 {
+        font-size: 28px; /* Further reduce sub-header size for small screens */
+      }
+      .project p {
+        font-size: 20px; /* Further reduce project text size */
+      }
+      button {
+        font-size: 20px; /* Further reduce button size for small screens */
+      }
+    }
   </style>
 </head>
 <body>
@@ -30,6 +121,7 @@
         <p>Herambh Plaza</p>
       </div>
     </div>
+    <button onclick="window.location.href='index.html'">← Back to Home</button>
   </div>
 
   <script>
@@ -44,3 +136,4 @@
 
 </body>
 </html>
+
