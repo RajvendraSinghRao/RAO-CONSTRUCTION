@@ -11,6 +11,8 @@
     .project { display: flex; flex-direction: column; align-items: center; }
     h1 { color: #2a2a2a; }
     button { margin-top: 20px; padding: 10px 20px; }
+    .floor-plan { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+    .floor-plan img { width: 300px; height: 200px; }
   </style>
 </head>
 <body>
@@ -27,37 +29,62 @@
     <h2>All Projects</h2>
     <div class="project-container">
       <div class="project">
-        <img src="https://via.placeholder.com/300x200?text=Raj+Park" onclick="showProject('raj')">
-        <p>Raj Park</p>
+        <img src="https://via.placeholder.com/300x200?text=Sai+Regency" onclick="showProject('sai')">
+        <p>Sai Regency</p>
       </div>
       <div class="project">
         <img src="https://via.placeholder.com/300x200?text=Herambh+Plaza" onclick="showProject('herambh')">
         <p>Herambh Plaza</p>
       </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/300x200?text=Sai+Regency" onclick="showProject('sai')">
-        <p>Sai Regency</p>
-      </div>
     </div>
     <button onclick="showSection('homeSection')">← Back to Home</button>
   </div>
 
-  <!-- PROJECT DETAILS -->
-  <div id="raj" class="section">
-    <h2>Raj Park</h2>
-    <p>Details about the Raj Park project...</p>
-    <button onclick="showSection('projectGallery')">← Back to Projects</button>
-  </div>
-
-  <div id="herambh" class="section">
-    <h2>Herambh Plaza</h2>
-    <p>Details about the Herambh Plaza project...</p>
-    <button onclick="showSection('projectGallery')">← Back to Projects</button>
-  </div>
-
+  <!-- SAI REGENCY DETAIL -->
   <div id="sai" class="section">
     <h2>Sai Regency</h2>
     <p>Details about the Sai Regency project...</p>
+
+    <!-- Floor Plans for Sai Regency -->
+    <div class="floor-plan">
+      <div>
+        <h3>Ground Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=Ground+Floor+Plan" alt="Ground Floor Plan">
+      </div>
+      <div>
+        <h3>Mezzanine Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=Mezzanine+Floor+Plan" alt="Mezzanine Floor Plan">
+      </div>
+      <div>
+        <h3>First Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=First+Floor+Plan" alt="First Floor Plan">
+      </div>
+    </div>
+
+    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+  </div>
+
+  <!-- HERAMBH PLAZA DETAIL -->
+  <div id="herambh" class="section">
+    <h2>Herambh Plaza</h2>
+    <p>Details about the Herambh Plaza project...</p>
+
+    <!-- Floor Plans for Herambh Plaza -->
+    <div class="floor-plan">
+      <div>
+        <h3>Ground Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=Ground+Floor+Plan" alt="Ground Floor Plan">
+      </div>
+      <div>
+        <h3>Mezzanine Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=Mezzanine+Floor+Plan" alt="Mezzanine Floor Plan">
+      </div>
+      <div>
+        <h3>First Floor Plan</h3>
+        <img src="https://via.placeholder.com/300x200?text=First+Floor+Plan" alt="First Floor Plan">
+      </div>
+    </div>
+
     <button onclick="showSection('projectGallery')">← Back to Projects</button>
   </div>
 
