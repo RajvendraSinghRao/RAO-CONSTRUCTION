@@ -18,15 +18,9 @@
 <body>
 
   <!-- HOME SECTION -->
-  <div id="homeSection" class="section" style="display: block;">
+  <div id="homeSection" style="display: block;">
     <h1>RAO CONSTRUCTION</h1>
     <h2>Our Projects</h2>
-    <img src="https://via.placeholder.com/300x200?text=View+Projects" alt="Projects" onclick="showSection('projectGallery')">
-  </div>
-
-  <!-- PROJECT GALLERY -->
-  <div id="projectGallery" class="section">
-    <h2>All Projects</h2>
     <div class="project-container">
       <!-- Clickable images for the projects -->
       <div class="project">
@@ -38,7 +32,6 @@
         <p>Herambh Plaza</p>
       </div>
     </div>
-    <button onclick="showSection('homeSection')">← Back to Home</button>
   </div>
 
   <!-- SAI REGENCY DETAIL -->
@@ -62,7 +55,7 @@
       </div>
     </div>
 
-    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+    <button onclick="showSection('homeSection')">← Back to Home</button>
   </div>
 
   <!-- HERAMBH PLAZA DETAIL -->
@@ -86,7 +79,7 @@
       </div>
     </div>
 
-    <button onclick="showSection('projectGallery')">← Back to Projects</button>
+    <button onclick="showSection('homeSection')">← Back to Home</button>
   </div>
 
   <script>
@@ -104,4 +97,3 @@
 
 </body>
 </html>
-
