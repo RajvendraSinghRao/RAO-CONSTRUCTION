@@ -32,9 +32,15 @@
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+    .floor-plan div {
+      display: none; /* Hide all images initially */
+    }
+    .floor-plan div.active {
+      display: block; /* Show only the active image */
+    }
     .floor-plan img { 
-      width: 300px; 
-      height: 200px; 
+      width: 500px; /* Increased size of the image */
+      height: 350px;
       border-radius: 8px;
       object-fit: cover;
     }
@@ -81,6 +87,19 @@
     .slider-buttons button:hover {
       background-color: #555;
     }
+    .back-to-home {
+      margin-top: 30px; /* Added margin to separate it from the buttons */
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .back-to-home:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
@@ -91,7 +110,7 @@
   <!-- Floor Plans for Sai Regency -->
   <div class="floor-plan-container">
     <div class="floor-plan">
-      <div>
+      <div class="active">
         <h3>Ground Floor Plan</h3>
         <img src="ground floor plan sai regency.jpg" alt="Ground Floor Plan">
       </div>
@@ -122,21 +141,22 @@
     </div>
   </div>
 
-  <button onclick="window.location.href='index.html'">← Back to Home</button>
+  <button class="back-to-home" onclick="window.location.href='index.html'">← Back to Home</button>
 
   <script>
     let currentSlide = 0;
 
     function moveSlide(direction) {
-      const floorPlan = document.querySelector('.floor-plan');
-      const totalSlides = document.querySelectorAll('.floor-plan img').length;
+      const floorPlans = document.querySelectorAll('.floor-plan div');
+      const totalSlides = floorPlans.length;
       currentSlide += direction;
       
       if (currentSlide < 0) currentSlide = totalSlides - 1;
       if (currentSlide >= totalSlides) currentSlide = 0;
 
-      const slideWidth = document.querySelector('.floor-plan img').clientWidth + 20; // 20px gap between images
-      floorPlan.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+      // Hide all images and then show the current one
+      floorPlans.forEach(plan => plan.classList.remove('active'));
+      floorPlans[currentSlide].classList.add('active');
     }
   </script>
 
