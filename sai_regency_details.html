@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <title>Sai Regency - RAO CONSTRUCTION</title>
   <style>
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      text-align: center; 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
       padding: 20px;
       font-size: 20px;
       margin: 0;
     }
-    h1 { 
-      color: #2a2a2a; 
+    h1 {
+      color: #2a2a2a;
       font-size: 48px;
     }
-    h3 { 
+    h3 {
       font-size: 32px;
       color: #333;
     }
-    .floor-plan-container { 
-      display: flex; 
-      justify-content: center; 
+    .floor-plan-container {
+      display: flex;
+      justify-content: center;
       gap: 30px;
       margin-top: 30px;
       position: relative;
@@ -39,15 +39,15 @@
     .floor-plan div.active {
       display: block;
     }
-    .floor-plan img { 
+    .floor-plan img {
       width: 100%;
       max-width: 900px;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
     }
-    .flat-info { 
-      margin-top: 30px; 
+    .flat-info {
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -119,7 +119,7 @@
       padding: 30px;
       border-radius: 10px;
       position: relative;
-      max-width: 400px;
+      max-width: 500px;
       width: 90%;
       text-align: center;
     }
@@ -130,6 +130,24 @@
       right: 15px;
       cursor: pointer;
       font-size: 24px;
+    }
+
+    #popup-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    #popup-description {
+      font-size: 18px;
+      color: #333;
+    }
+
+    #popup-extra {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
     }
 
     @media (max-width: 768px) {
@@ -199,7 +217,7 @@
     <p>Ground Floor</p>
     <div>
       <button class="flat-number sold" data-flat="G1">G1</button>
-      <button class="flat-number sold" data-flat="G2">G2</button>
+      <button class="flat-number" data-flat="G2">G2</button>
       <button class="flat-number" data-flat="G3">G3</button>
     </div>
   </div>
@@ -219,12 +237,14 @@
 
   <button class="back-to-home" onclick="window.location.href='index.html'">← Back to Home</button>
 
-  <!-- Popup Modal -->
+  <!-- Popup -->
   <div id="popup">
     <div id="popup-content">
       <span onclick="closePopup()">&times;</span>
       <h2 id="popupTitle">Flat Info</h2>
-      <p>This is the flat details popup.</p>
+      <img id="popup-image" src="" alt="Flat Image" />
+      <p id="popup-description">Details about the flat...</p>
+      <p id="popup-extra">Additional info here...</p>
     </div>
   </div>
 
@@ -235,7 +255,6 @@
       const floorPlans = document.querySelectorAll('.floor-plan div');
       const totalSlides = floorPlans.length;
       currentSlide += direction;
-
       if (currentSlide < 0) currentSlide = totalSlides - 1;
       if (currentSlide >= totalSlides) currentSlide = 0;
 
@@ -245,10 +264,78 @@
 
     const popup = document.getElementById("popup");
     const popupTitle = document.getElementById("popupTitle");
+    const popupImage = document.getElementById("popup-image");
+    const popupDesc = document.getElementById("popup-description");
+    const popupExtra = document.getElementById("popup-extra");
+
+    const flatData = {
+      "G1": {
+        image: "images/g1.jpg",
+        description: "Ground floor flat G1 with garden view. 2BHK, 850 sqft.",
+        extra: "Possession from August 2025"
+      },
+      "G2": {
+        image: "images/g2.jpg",
+        description: "Spacious G2 flat, 1BHK with 480sqft area with parking and lift access.",
+        extra: "RATE of flat :- 3500 x 480 = 16,80,000 + 100,000(society) And stampduty will be paid by customers."
+      },
+      "G3": {
+        image: "images/g3.jpg",
+        description: "Flat G3 near lift lobby. Compact 1BHK, 600 sqft.",
+        extra: "Ready to move"
+      },
+      "001": {
+        image: "images/001.jpg",
+        description: "Mezzanine flat 001 with balcony. 3BHK, 1100 sqft.",
+        extra: "Sea-facing view"
+      },
+      "002": {
+        image: "images/002.jpg",
+        description: "Flat 002 is east-facing. 2BHK, semi-furnished.",
+        extra: "Includes modular kitchen"
+      },
+      "003": {
+        image: "images/003.jpg",
+        description: "003 - Budget-friendly 1BHK near staircase.",
+        extra: "Ideal for bachelors"
+      },
+      "004": {
+        image: "images/004.jpg",
+        description: "Sold - Luxury 3BHK with lake view.",
+        extra: "NA"
+      },
+      "005": {
+        image: "images/005.jpg",
+        description: "Flat 005 - Corner flat, ventilated, 2BHK.",
+        extra: "Includes private balcony"
+      },
+      "006": {
+        image: "images/006.jpg",
+        description: "006 - Suitable for small families, 1BHK.",
+        extra: "Furnished with AC"
+      },
+      "007": {
+        image: "images/007.jpg",
+        description: "007 - West-facing, 2BHK, nearby amenities.",
+        extra: "Includes parking spot"
+      }
+    };
 
     function openPopup(flatNumber) {
-      popupTitle.textContent = "Flat " + flatNumber;
-      popup.style.display = "flex";
+      const data = flatData[flatNumber];
+      if (data) {
+        popupTitle.textContent = "Flat " + flatNumber;
+        popupImage.src = data.image;
+        popupDesc.textContent = data.description;
+        popupExtra.textContent = data.extra || "";
+        popup.style.display = "flex";
+      } else {
+        popupTitle.textContent = "Flat " + flatNumber;
+        popupImage.src = "";
+        popupDesc.textContent = "No info available.";
+        popupExtra.textContent = "";
+        popup.style.display = "flex";
+      }
     }
 
     function closePopup() {
@@ -265,21 +352,6 @@
         }
       });
     });
-
-    // Functions to change flat status
-    function markAsSold(flatNumber) {
-      const button = document.querySelector(`.flat-number[data-flat="${flatNumber}"]`);
-      if (button) button.classList.add('sold');
-    }
-
-    function markAsUnsold(flatNumber) {
-      const button = document.querySelector(`.flat-number[data-flat="${flatNumber}"]`);
-      if (button) button.classList.remove('sold');
-    }
-
-    // Example usage:
-    // markAsSold("G2");
-    // markAsUnsold("004");
   </script>
 
 </body>
